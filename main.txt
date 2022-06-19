@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+
+% Title page details: 
+\title{Assignment 13} 
+\author{Kummitha Jhanavi (CS21BTECH11032)}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+
+
+
+% Blocks frame
+\section{Question}
+\begin{frame}{Question}
+    \begin{block}
+       
+       Referring to Example 15.8 , let $e_{1}$,$e_{2}$,,,,$e_{N}$ represent the states with two end reflecting barriers and transition matrix as in (15-22).Thus $p_{i,i+1}$=p, $p_{i,i-1}$=q for 2 $\leq$ i $\leq$ N-1,, $p_{11}$=q,$p_{12}$=p, and $p_{N,N-1}$=q,$p_{NN}$=p.
+    \end{block}
+    
+\end{frame} 
+
+\section{Reference}
+\begin{frame}{Reference}
+\begin{block}
+   
+   Example 15.8: Suppose the two boundaries in Example 15-7 reflect the particle to the adjacent state instead of adsorbing it. With $e_{1}$,$e_{2}$,...,$e_{N}$ representing the N states , the end reflection probabilities to the right and left are given by
+   \begin{center}
+       $p_{1,2}$=p and $p_{N,N-1}$=q
+   \end{center}
+   
+   (15-22)
+   and this gives the N*N transition matrix to be
+   
+   p= \begin{pmatrix}
+q & p & 0 & 0 & . & . & . & 0  \\
+q & 0 & p & 0 & 0 & . & . & .   \\
+0 & q & 0 & p & 0 & . & . & .    \\
+. & . & . & . & . & . & . & .      \\
+. & . & . & . & . & . & . & .      \\
+. & . & . & . & . & . & . & .       \\
+0 & 0 & 0 & . & . & q & 0 & p        \\
+0 & 0 & 0 & . & . & 0 & q & p
+\end{pmatrix}
+\end{block}
+    
+\end{frame}
+\section{Solution}
+\begin{frame}{Solution}
+\begin{block}
+
+\begin{equation}
+    
+  \sum$ _{j=1}^{N}$  p_{ij}x_{j}^{(k)} = \lambda_{k}x_{i}^{(k)}
+   \end{equaton}
+   
+   Substituting in above equation we get 
+   \begin{equation}
+       $x_{1}$= s(qx_{1}+px_{2})
+   \end{equation}
+   \begin{equation}
+       $x_{i}$ = s(qx_{i-1} + px_{i+1}) $$ i=2,3,....N-1
+   \end{equation}
+   \begin{equation}
+       $x_{N}$=s(qx_{N-1} +px_{N})
+   \end{equation}
+\end{block}
+    
+\end{frame}
+
+\begin{frame}
+    \begin{block}
+    
+     Where we have used s = 1/$\lambda$. Clearly $\lambda$=1 corresponds to the specific solution $x_{i}=1$.To find all other solutions , notice that $x_{i}$ = s(q$x_{i-1}$ + p$x_{i+1}$) satisfies the particular solution
+   
+   $x_{i}$ = \xi^{i}
+   
+   provided $\xi$ is a root of the quadratic equation \begin{equation}
+       $\xi$=qs+ps$\xi$^{2}
+   \end{equation}
+      
+   The two roots of the quadratic equation are
+   \begin{center}
+       $\xi_{1}$(s) = $\frac{1+\sqrt{1-4pqs^{2}}}{2ps}$
+       
+      $\xi_{2}$(s) = $\frac{1+\sqrt{1-4pqs^{2}}}{2ps} 
+   \end{center}
+   and the general solution to  $x_{i}$ = s(qx_{i-1} + px_{i+1}) is given by
+   
+   for i = 2,....,N-1
+   \begin{equation}
+       $x_{i}$=a(s)$\xi_{1}$^{i}(s) + b(s)$\xi_{2}$^{i}(s)
+   \end{equation}
+      
+    \end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}
+
+where a(s) and b(s) are yet to be determined .For equation 2 to satisfy equation 6 , it must have the same form as equation 3 and hence we must have $x_{1}$ = $x_{0}$. Similarly for equation 4 to satisfy equation 6 , on comparing it with equation 3 , we must have $x_{N}$ =$x_{N+1}$.But
+\begin{equation}
+    $x_{1}$ = $x_{0}$ $\Rightarrow$ a(s)[1-$\xi_{1}$(s)]= -b(s)[1-$\xi_{2}$(s)]
+\end{equation}
+and
+\begin{equation}
+    $x_{N}$= $x_{N+1}$ $\Rightarrow$ a(s)[1-$\xi_{1}$(s)]$\xi_{1}$^{N}(s) = -b(s)[1-$\xi_{2}$(s)]$\xi_{2}$^{N}(s)
+\end{equation}
+\end{block}
+    
+\end{frame}
+\begin{frame}
+\begin{block}
+and from equation 7 anad 8 we must have 
+\begin{center}
+    $\xi_{1}$^{N}(s) = $\xi_{2}$^{N}(s) with $\xi_{1}$(s) $\neq$ $\xi_{2}$(s)
+\end{center}
+But from equation 5 , we get  $\xi_{1}$(s) $\xi_{2}$(s) = q/p so that equation  $\xi_{1}$^{N}(s)= $\xi_{12}$^{N}(s) reduces to 
+
+$\lambda$_{k} = \frac{1}{s_{k}} For $\lambda_{0}$=1 we obtain directly $x_{i}^{(0)}$ =1
+we get $x_{i}$^{(k)} = (\frac{q}{p})^{i/2}sin \frac{\pi ki}{N}- (\frac{q}{p})^{(i+1)/2}sin \frac{\pi k(i-1)}{N} where k = 1,2,,,N-1
+
+\end{block}
+    
+\end{frame}
+
+  
+   \end{document}
